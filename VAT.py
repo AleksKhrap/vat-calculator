@@ -40,37 +40,37 @@ def calc():
     messagebox.showinfo("Результат", f"Сумма: {result}")
 
 
-if __name__ == "main":
-    calculator = Tk()
-    x = (calculator.winfo_screenwidth() - calculator.winfo_reqwidth()) / 2
-    y = (calculator.winfo_screenheight() - calculator.winfo_reqheight()) / 2
-    calculator.wm_geometry("+%d+%d" % (x - 100, y - 50))
-    calculator.title("Калькулятор НДС")
 
-    Label(text="НДС %:").grid(row=0, column=0, sticky=W)
-    nds = IntVar()
-    nds.set(0)
-    Radiobutton(text='20%', variable=nds, value=0).grid(row=0, column=1, padx=5, pady=5, sticky=W)
-    Radiobutton(text='10%', variable=nds, value=1).grid(row=1, column=1, padx=5, pady=5, sticky=W)
+calculator = Tk()
+x = (calculator.winfo_screenwidth() - calculator.winfo_reqwidth()) / 2
+y = (calculator.winfo_screenheight() - calculator.winfo_reqheight()) / 2
+calculator.wm_geometry("+%d+%d" % (x - 100, y - 50))
+calculator.title("Калькулятор НДС")
 
-    Label(text="Способ вычисления:").grid(row=2, column=0, sticky=W)
-    s = IntVar()
-    s.set(0)
-    Radiobutton(text='Начислить НДС (прибавить НДС к сумме)', variable=s, value=0).grid(row=2, column=1, padx=5, pady=5,
+Label(text="НДС %:").grid(row=0, column=0, sticky=W)
+nds = IntVar()
+nds.set(0)
+Radiobutton(text='20%', variable=nds, value=0).grid(row=0, column=1, padx=5, pady=5, sticky=W)
+Radiobutton(text='10%', variable=nds, value=1).grid(row=1, column=1, padx=5, pady=5, sticky=W)
+
+Label(text="Способ вычисления:").grid(row=2, column=0, sticky=W)
+s = IntVar()
+s.set(0)
+Radiobutton(text='Начислить НДС (прибавить НДС к сумме)', variable=s, value=0).grid(row=2, column=1, padx=5, pady=5,
                                                                                         sticky=W)
-    Radiobutton(text='Выделить НДС (вычесть НДС из суммы)', variable=s, value=1).grid(row=3, column=1, padx=5, pady=5,
+Radiobutton(text='Выделить НДС (вычесть НДС из суммы)', variable=s, value=1).grid(row=3, column=1, padx=5, pady=5,
                                                                                       sticky=W)
-    Radiobutton(text='Рассчитать сумму, зная НДС', variable=s, value=2).grid(row=4, column=1, padx=5, pady=5, sticky=W)
+Radiobutton(text='Рассчитать сумму, зная НДС', variable=s, value=2).grid(row=4, column=1, padx=5, pady=5, sticky=W)
 
-    n = IntVar()
-    n.set('')
-    Label(text="Сумма:").grid(row=5, column=0, sticky=W)
-    reg = (calculator.register(validate), '%P')
-    n_entry = Entry(validate='key', validatecommand=reg, textvariable=n)
-    n_entry.grid(row=5, column=1, padx=5, pady=5, sticky=W)
+n = IntVar()
+n.set('')
+Label(text="Сумма:").grid(row=5, column=0, sticky=W)
+reg = (calculator.register(validate), '%P')
+n_entry = Entry(validate='key', validatecommand=reg, textvariable=n)
+n_entry.grid(row=5, column=1, padx=5, pady=5, sticky=W)
 
-    Button(text="Помощь", command=show_help).grid(row=0, column=3, padx=5, pady=5, sticky=W)
-    Button(text="Очистить", command=clear).grid(row=5, column=3, padx=5, pady=5, sticky=W)
-    Button(text="Рассчитать", command=calc).grid(row=6, column=1, padx=5, pady=5, sticky=W)
+Button(text="Помощь", command=show_help).grid(row=0, column=3, padx=5, pady=5, sticky=W)
+Button(text="Очистить", command=clear).grid(row=5, column=3, padx=5, pady=5, sticky=W)
+Button(text="Рассчитать", command=calc).grid(row=6, column=1, padx=5, pady=5, sticky=W)
 
-    calculator.mainloop()
+calculator.mainloop()
